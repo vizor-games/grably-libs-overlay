@@ -1,0 +1,11 @@
+diff -r 74683fcf33a6 core/src/com/google/inject/internal/InternalInjectorCreator.java
+--- a/core/src/com/google/inject/internal/InternalInjectorCreator.java	Mon Jul 16 22:49:19 2018 +0300
++++ b/core/src/com/google/inject/internal/InternalInjectorCreator.java	Mon Jul 16 22:50:04 2018 +0300
+@@ -211,6 +211,7 @@
+             binding.getInternalFactory().get(context, dependency, false);
+           } catch (InternalProvisionException e) {
+             errors.withSource(dependency).merge(e);
++	    break;
+           } finally {
+               context.popStateAndSetDependency(previous);
+             }

@@ -1,0 +1,42 @@
+diff -r 241823a984fa core/src/com/google/inject/internal/SingletonScope.java
+--- a/core/src/com/google/inject/internal/SingletonScope.java	Tue Jul 17 13:13:28 2018 +0300
++++ b/core/src/com/google/inject/internal/SingletonScope.java	Tue Jul 17 13:33:03 2018 +0300
+@@ -56,6 +56,9 @@
+ 
+   /** A sentinel value representing null. */
+   private static final Object NULL = new Object();
++  
++  /** A sentinel value representing errorneous object. */
++  private static final Object ERROR = new Object();
+ 
+   /**
+    * Allows us to detect when circular proxies are necessary. It's only used during singleton
+@@ -126,6 +129,10 @@
+       public T get() {
+         // cache volatile variable for the usual case of already initialized object
+         final Object initialInstance = instance;
++        
++        if (initialInstance == ERROR)
++          throw new RuntimeException("Errorneous singleton reinitialization");
++          
+         if (initialInstance == null) {
+           // instance is not initialized yet
+ 
+@@ -175,12 +182,17 @@
+               // this helps to prevent potential memory leaks in circular proxies list
+               synchronized (constructionContext) {
+                 constructionContext.finishConstruction();
++                // mark singleton as errorneous
++                instance = ERROR;
+               }
+               throw e;
+             } finally {
+               // always release our creation lock, even on failures
+               creationLock.unlock();
+             }
++            
++            if (instance == ERROR)
++              throw new RuntimeException("Errorneous singleton reinitialization");
+           } else {
+             if (context == null) {
+               throw new ProvisionException(
