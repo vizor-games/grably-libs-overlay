@@ -2,8 +2,7 @@
 
 extend JavacLib
 
-@src = "http://www.slf4j.org/dist/slf4j-#{@version}.tar.gz"
-@work_dir = "slf4j-#{@version}"
+@github = { project: 'qos-ch/slf4j', rev: "v_#{@version}" }
 @srcs = 'slf4j-api/src/main/java'
 
 def post_compile
