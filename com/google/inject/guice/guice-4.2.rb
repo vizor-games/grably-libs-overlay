@@ -11,3 +11,8 @@ extend JavacLib
   'aopalliance:aopalliance',
   'cglib:cglib'
 ]
+
+def patch
+  patch_w('errorneous-singletons.patch')
+  patch_w('stop-on-error.patch')
+end
