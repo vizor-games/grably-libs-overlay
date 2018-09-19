@@ -2,11 +2,11 @@
 
 extend JavacLib
 
-@github = { project: 'FasterXML/jackson-dataformats-binary', rev: "jackson-dataformats-binary-#{@version}" }
+@github = { project: 'FasterXML/jackson-dataformat-yaml', rev: "jackson-dataformat-yaml-2.9.0.pr1" }
 @srcs = 'src/main/java'
 @res = 'src/main/resources'
-@rdeps = ['com.fasterxml.jackson.core:jackson-databind']
-@work_dir = 'smile'
+@rdeps = ['com.fasterxml.jackson.core:jackson-databind', 'org.yaml:snakeyaml']
+@module = 'yaml'
 
 def patch
   pkg = @package || "#{group}.#{@module || @work_dir}"

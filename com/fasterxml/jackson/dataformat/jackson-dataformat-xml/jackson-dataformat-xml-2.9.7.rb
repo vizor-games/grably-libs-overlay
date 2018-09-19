@@ -2,11 +2,15 @@
 
 extend JavacLib
 
-@github = { project: 'FasterXML/jackson-dataformats-binary', rev: "jackson-dataformats-binary-#{@version}" }
+@github = { project: 'FasterXML/jackson-dataformat-xml', rev: full_name }
 @srcs = 'src/main/java'
 @res = 'src/main/resources'
-@rdeps = ['com.fasterxml.jackson.core:jackson-databind']
-@work_dir = 'smile'
+@rdeps = [
+  'com.fasterxml.jackson.core:jackson-databind',
+  'com.fasterxml.jackson.module:jackson-module-jaxb-annotations',
+  'org.codehaus.woodstox:stax2-api'
+]
+@module = 'xml'
 
 def patch
   pkg = @package || "#{group}.#{@module || @work_dir}"

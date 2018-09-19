@@ -5,7 +5,7 @@ extend JavacLib
 @github = { project: 'FasterXML/jackson-dataformats-binary', rev: "jackson-dataformats-binary-#{@version}" }
 @srcs = 'src/main/java'
 @res = 'src/main/resources'
-@rdeps = ["=com.fasterxml.jackson.core:jackson-databind-#{@version}"]
+@rdeps = ['com.fasterxml.jackson.core:jackson-databind']
 @work_dir = 'cbor'
 
 def patch
