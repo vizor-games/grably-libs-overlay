@@ -1,0 +1,26 @@
+diff -r 05d1db870049 src/main/java/org/nnsoft/guice/rocoto/Rocoto.java
+--- a/src/main/java/org/nnsoft/guice/rocoto/Rocoto.java	Mon Jul 30 17:34:18 2018 +0300
++++ b/src/main/java/org/nnsoft/guice/rocoto/Rocoto.java	Mon Jul 30 17:40:52 2018 +0300
+@@ -34,6 +34,7 @@
+ import com.google.inject.name.Named;
+ import com.google.inject.spi.DefaultElementVisitor;
+ import com.google.inject.spi.Element;
++import com.google.inject.spi.InstanceBinding;
+ 
+ /**
+  * @since 6.0
+@@ -95,9 +96,12 @@
+                             propertyKey = ( (javax.inject.Named) bindingKey.getAnnotation() ).value();
+                         }
+ 
+-                        String propertyValue = (String) binding.getProvider().get();
++                        if (binding instanceof InstanceBinding)
++                        {
++                            String propertyValue = (String) ( (InstanceBinding) binding ).getInstance();
+ 
+-                        variablesMap.put( propertyKey, propertyValue );
++                            variablesMap.put( propertyKey, propertyValue );
++                        }
+                     }
+ 
+                     return super.visit( binding );

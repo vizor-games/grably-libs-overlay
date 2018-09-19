@@ -1,0 +1,20 @@
+diff -r 15005f62c3f6 extensions/closeable/src/main/java/com/mycila/guice/ext/closeable/MycilaCloseableInjector.java
+--- a/extensions/closeable/src/main/java/com/mycila/guice/ext/closeable/MycilaCloseableInjector.java	Tue Jul 17 14:46:34 2018 +0300
++++ b/extensions/closeable/src/main/java/com/mycila/guice/ext/closeable/MycilaCloseableInjector.java	Tue Jul 17 14:52:35 2018 +0300
+@@ -42,9 +42,13 @@
+             injector = null;
+             for (Binding<?> binding : current.getAllBindings().values()) {
+                 if (Scopes.isSingleton(binding)) {
+-                    Object o = binding.getProvider().get();
+-                    if (o instanceof InjectorCloseListener) {
+-                        ((InjectorCloseListener) o).onInjectorClosing();
++                    try {
++                        Object o = binding.getProvider().get();
++                        if (o instanceof InjectorCloseListener) {
++                            ((InjectorCloseListener) o).onInjectorClosing();
++                        }
++                    } catch (Exception e) {
++                        // ignore close errors silently
+                     }
+                 }
+             }
