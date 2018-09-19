@@ -1,0 +1,51 @@
+diff -r 5b11d2827c8c api/src/main/java/org/xnio/Xnio.java
+--- a/api/src/main/java/org/xnio/Xnio.java	Mon Jun 25 23:59:32 2018 +0300
++++ b/api/src/main/java/org/xnio/Xnio.java	Tue Jun 26 00:00:52 2018 +0300
+@@ -40,10 +40,6 @@
+ import javax.management.MBeanServer;
+ import javax.management.ObjectName;
+ 
+-import org.osgi.framework.Bundle;
+-import org.osgi.framework.BundleContext;
+-import org.osgi.framework.FrameworkUtil;
+-import org.osgi.framework.ServiceReference;
+ import org.xnio.management.XnioProviderMXBean;
+ import org.xnio.management.XnioServerMXBean;
+ import org.xnio.management.XnioWorkerMXBean;
+@@ -248,36 +244,9 @@
+                 msg.debugf(t, "Skipping non-loadable provider");
+             }
+         }
+-        try {
+-            Xnio xnio = OsgiSupport.doGetOsgiService();
+-            if (xnio != null) {
+-                return xnio;
+-            }
+-        } catch (NoClassDefFoundError t) {
+-            // Ignore
+-        } catch (Throwable t) {
+-            msg.debugf(t, "Not using OSGi service");
+-        }
+         throw msg.noProviderFound();
+     }
+ 
+-    static class OsgiSupport {
+-
+-        static Xnio doGetOsgiService() {
+-            Bundle bundle = FrameworkUtil.getBundle(Xnio.class);
+-            BundleContext context = bundle.getBundleContext();
+-            if (context == null) {
+-                throw new IllegalStateException("Bundle not started");
+-            }
+-            ServiceReference<Xnio> sr = context.getServiceReference(Xnio.class);
+-            if (sr == null) {
+-                return null;
+-            }
+-            return context.getService(sr);
+-        }
+-
+-    }
+-
+     //==================================================
+     //
+     // SSL methods

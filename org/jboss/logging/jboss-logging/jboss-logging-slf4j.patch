@@ -1,0 +1,12 @@
+diff -r edf7a3b620e7 src/main/java/org/jboss/logging/Slf4jLoggerProvider.java
+--- a/src/main/java/org/jboss/logging/Slf4jLoggerProvider.java	Sat Jun 16 14:25:56 2018 +0300
++++ b/src/main/java/org/jboss/logging/Slf4jLoggerProvider.java	Sat Jun 16 15:23:26 2018 +0300
+@@ -62,7 +62,7 @@
+ 
+     public Map<String, Object> getMdcMap() {
+         @SuppressWarnings({"unchecked"})
+-        final Map<String, Object> map = MDC.getCopyOfContextMap();
++        final Map<String, Object> map = (Map)MDC.getCopyOfContextMap();
+         return map == null ? Collections.<String, Object>emptyMap() : map;
+     }
+ }
