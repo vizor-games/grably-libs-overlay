@@ -11,6 +11,6 @@ def patch
   cp = java_classpath(get_deps('org.mvel:mvel2'))
   [
     java_cmd, '-cp', cp, "-Dout.dir=#{w('src/java-gen')}", 'org.mvel2.sh.Main',
-    w('src/build/gen_sources.mvel'),
+    '../gen_sources.mvel',
   ].run(chdir: w('src/build/source_templates'))
 end
