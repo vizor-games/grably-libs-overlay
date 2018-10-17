@@ -10,7 +10,8 @@ extend JavacLib
 def patch
   cp = java_classpath(get_deps('org.mvel:mvel2'))
   [
-    java_cmd, '-cp', cp, "-Dout.dir=#{w('src/java-gen')}", 'org.mvel2.sh.Main',
+    java_cmd, '-cp', cp, "-Dout.dir=../../java-gen", 'org.mvel2.sh.Main',
     '../gen_sources.mvel',
   ].run(chdir: w('src/build/source_templates'))
+  raise 'err'
 end
