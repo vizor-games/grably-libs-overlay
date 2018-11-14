@@ -1,0 +1,24 @@
+diff -r c58839c7cebc src/main/java/org/jboss/jdeparser/Assertions.java
+--- a/src/main/java/org/jboss/jdeparser/Assertions.java	Wed Nov 14 19:44:56 2018 +0300
++++ b/src/main/java/org/jboss/jdeparser/Assertions.java	Wed Nov 14 19:45:37 2018 +0300
+@@ -18,20 +18,10 @@
+ 
+ package org.jboss.jdeparser;
+ 
+-import sun.reflect.Reflection;
+-
+ /**
+  * @author <a href="mailto:david.lloyd@redhat.com">David M. Lloyd</a>
+  */
+ class Assertions {
+-    static boolean callerIs(Class<?> clazz) {
+-        try {
+-            return Reflection.getCallerClass(3) == clazz;
+-        } catch (Throwable ignored) {}
+-        // dunno
+-        return true;
+-    }
+-
+     @SuppressWarnings("ConstantConditions")
+     static boolean alwaysTrue(boolean expr) {
+         assert expr : "Expected expression to be true";
