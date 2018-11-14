@@ -11,3 +11,7 @@ extend GroovyLib
   'javax.mail:javax.mail-api',
   'org.codehaus.groovy:groovy'
 ]
+
+def patch
+  patch_w('java11-compat.patch')
+end
