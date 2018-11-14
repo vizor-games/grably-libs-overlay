@@ -21,4 +21,7 @@ def patch
 
   # Exclude osgi
   patch_w('xnio-api-no-osgi.patch')
+
+  # Exclude compatibility stub
+  rm_w('api/src/main/java/java/nio/channels')
 end
