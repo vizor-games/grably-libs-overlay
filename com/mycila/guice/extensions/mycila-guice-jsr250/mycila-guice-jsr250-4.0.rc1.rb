@@ -7,7 +7,7 @@ extend JavacLib
 @modules = ['closeable', 'injection', 'jsr250', 'legacy', 'service']
 @srcs = @modules.map { |m| "extensions/#{m}/src/main/java" }
 @res = 'res'
-@rdeps = ['com.google.inject:guice']
+@rdeps = ['com.google.inject:guice', 'javax.annotation:javax.annotation-api']
 
 def patch
   # concat all services
@@ -32,4 +32,5 @@ def patch
   end
 
   patch_w('skip-errors-on-close.patch')
+  patch_w('java11-compat.patch')
 end

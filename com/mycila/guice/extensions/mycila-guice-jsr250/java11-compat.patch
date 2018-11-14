@@ -1,0 +1,22 @@
+diff -r 626c81cd189e extensions/closeable/src/main/java/com/mycila/guice/ext/closeable/MycilaCloseableInjector.java
+--- a/extensions/closeable/src/main/java/com/mycila/guice/ext/closeable/MycilaCloseableInjector.java	Wed Nov 14 17:38:37 2018 +0300
++++ b/extensions/closeable/src/main/java/com/mycila/guice/ext/closeable/MycilaCloseableInjector.java	Wed Nov 14 17:39:16 2018 +0300
+@@ -16,6 +16,7 @@
+ package com.mycila.guice.ext.closeable;
+ 
+ import com.google.inject.*;
++import com.google.inject.Module;
+ import com.google.inject.spi.TypeConverterBinding;
+ 
+ import java.lang.annotation.Annotation;
+diff -r 626c81cd189e extensions/injection/src/main/java/com/mycila/guice/ext/injection/MBinder.java
+--- a/extensions/injection/src/main/java/com/mycila/guice/ext/injection/MBinder.java	Wed Nov 14 17:38:37 2018 +0300
++++ b/extensions/injection/src/main/java/com/mycila/guice/ext/injection/MBinder.java	Wed Nov 14 17:39:16 2018 +0300
+@@ -16,6 +16,7 @@
+ package com.mycila.guice.ext.injection;
+ 
+ import com.google.inject.*;
++import com.google.inject.Module;
+ import com.google.inject.binder.AnnotatedBindingBuilder;
+ import com.google.inject.binder.AnnotatedConstantBindingBuilder;
+ import com.google.inject.binder.LinkedBindingBuilder;
