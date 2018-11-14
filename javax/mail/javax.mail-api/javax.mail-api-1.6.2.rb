@@ -8,6 +8,8 @@ extend JavacLib
 @srcs = 'mail/src/main/java'
 @res = 'mail/src/main/resources'
 
+@rdeps = ['com.sun.activation:javax.activation'] if java_version >= 9
+
 def patch
   preprocess_w("#{@res}/javax/mail/Version.java", "#{@srcs}/javax/mail/Version.java") do |data|
     data.gsub('${mail.version}', @version.to_s)
