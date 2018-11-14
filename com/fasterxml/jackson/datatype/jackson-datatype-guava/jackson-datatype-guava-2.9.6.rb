@@ -21,4 +21,6 @@ def patch
     s.gsub!('@package@', pkg)
     s
   end
+
+  patch_w('java11-compat.patch')
 end
