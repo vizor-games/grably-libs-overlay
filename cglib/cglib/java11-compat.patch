@@ -1,0 +1,11 @@
+diff -r d249bcd98a9e cglib/src/main/java/net/sf/cglib/reflect/MethodDelegate.java
+--- a/cglib/src/main/java/net/sf/cglib/reflect/MethodDelegate.java	Wed Nov 14 17:31:06 2018 +0300
++++ b/cglib/src/main/java/net/sf/cglib/reflect/MethodDelegate.java	Wed Nov 14 17:31:39 2018 +0300
+@@ -17,7 +17,6 @@
+ 
+ import java.lang.reflect.*;
+ import java.security.ProtectionDomain;
+-import net.sf.cglib.*;
+ import net.sf.cglib.core.*;
+ import org.objectweb.asm.ClassVisitor;
+ import org.objectweb.asm.Type;

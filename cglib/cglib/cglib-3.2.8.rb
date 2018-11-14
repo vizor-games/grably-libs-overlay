@@ -11,4 +11,6 @@ def patch
   # disable ant support, we don't need it
   rm_w('cglib/src/main/java/net/sf/cglib/transform/AbstractTransformTask.java')
   rm_w('cglib/src/main/java/net/sf/cglib/transform/AbstractProcessTask.java')
+
+  patch_w('java11-compat.patch')
 end
