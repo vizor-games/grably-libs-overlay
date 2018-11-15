@@ -8,7 +8,7 @@ extend GroovyLib
 @rdeps = ['org.slf4j:slf4j-api', "=ch.qos.logback:logback-core-#{@version}"]
 @bdeps = @rdeps + [
   'javax.servlet:javax.servlet-api',
-  'javax.mail:javax.mail-api',
+  'jakarta.mail:jakarta.mail-api',
   'org.codehaus.groovy:groovy'
 ]
 

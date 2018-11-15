@@ -5,4 +5,4 @@ extend JavacLib
 @github = { project: 'apache/log4j', rev: "v#{@version.join('_')}" }
 @srcs = 'src/main/java'
 @res = 'src/main/resources'
-@rdeps = ['javax.mail:javax.mail-api', 'javax.jms:javax.jms-api']
+@rdeps = ['jakarta.mail:jakarta.mail-api', 'jakarta.jms:jakarta.jms-api']

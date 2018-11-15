@@ -1,11 +1,9 @@
 # https://github.com/javaee/activation
 
-extend JavacLib
+extend VirtualLib
 
-@github = { project: 'javaee/activation', rev: "JAF-#{version.join('_')}" }
-@srcs = 'activation/src/main/java'
-@res = 'activation/src/main/resources'
+@rdeps = 'jakarta.activation:jakarta.activation-api'
 
-def pre_build
-  raise 'valid only for java >= 9' unless java_version >= 9
+def info
+  warn "library deprecated, please use #{@rdeps}"
 end

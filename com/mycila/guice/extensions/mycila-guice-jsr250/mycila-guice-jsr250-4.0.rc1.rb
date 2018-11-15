@@ -7,7 +7,7 @@ extend JavacLib
 @modules = ['closeable', 'injection', 'jsr250', 'legacy', 'service']
 @srcs = @modules.map { |m| "extensions/#{m}/src/main/java" }
 @res = 'res'
-@rdeps = ['com.google.inject:guice', 'javax.annotation:javax.annotation-api']
+@rdeps = ['com.google.inject:guice', 'jakarta.annotation:jakarta.annotation-api']
 
 def patch
   # concat all services
