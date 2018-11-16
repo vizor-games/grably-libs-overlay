@@ -1,0 +1,78 @@
+diff -r 33320ef283b6 src/main/java/org/mvel2/util/Make.java
+--- a/src/main/java/org/mvel2/util/Make.java	Fri Nov 16 09:24:31 2018 +0300
++++ b/src/main/java/org/mvel2/util/Make.java	Fri Nov 16 09:25:40 2018 +0300
+@@ -29,12 +29,12 @@
+       this.mapInstance = mapInstance;
+     }
+ 
+-    public Map<K, V> _(K key, V value) {
++    public Map<K, V> __(K key, V value) {
+       mapInstance.put(key, value);
+       return this;
+     }
+ 
+-    public java.util.Map<K, V> _() {
++    public java.util.Map<K, V> __() {
+       return finish();
+     }
+ 
+@@ -52,7 +52,7 @@
+       return new String(new StringBuilder());
+     }
+ 
+-    public java.lang.String _() {
++    public java.lang.String __() {
+       return finish();
+     }
+ 
+@@ -66,17 +66,17 @@
+       this.stringAppender = stringAppender;
+     }
+ 
+-    public String _(char c) {
++    public String __(char c) {
+       stringAppender.append(c);
+       return this;
+     }
+ 
+-    public String _(CharSequence cs) {
++    public String __(CharSequence cs) {
+       stringAppender.append(cs);
+       return this;
+     }
+ 
+-    public String _(String s) {
++    public String __(String s) {
+       stringAppender.append(s);
+       return this;
+     }
+@@ -106,12 +106,12 @@
+       this.listInstance = listInstance;
+     }
+ 
+-    public List<V> _(V value) {
++    public List<V> __(V value) {
+       listInstance.add(value);
+       return this;
+     }
+ 
+-    public java.util.List<V> _() {
++    public java.util.List<V> __() {
+       return finish();
+     }
+ 
+@@ -144,12 +144,12 @@
+       this.listInstance = listInstance;
+     }
+ 
+-    public Set<V> _(V value) {
++    public Set<V> __(V value) {
+       listInstance.add(value);
+       return this;
+     }
+ 
+-    public java.util.Set<V> _() {
++    public java.util.Set<V> __() {
+       return finish();
+     }
+ 
