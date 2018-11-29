@@ -8,6 +8,7 @@ extend JavacLib
   'org.jboss.xnio:xnio-nio',
   "=io.undertow:undertow-parser-generator-#{@version}"
 ]
+@bdeps = @rdeps + ['org.jboss.logging:jboss-logging-processor']
 
 def patch
   # Disable support for jetty alpn for now
